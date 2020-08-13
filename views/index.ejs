@@ -1,0 +1,104 @@
+<!-- index.ejs -->
+<!-- <!DOCTYPE html> -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <title>Gery Contact</title>
+</head>
+<body>
+  <section class="section">
+
+    <div class="container">
+      <div class="columns">
+        <div class="column is-4">
+          
+          <form action="/contacts" method="POST">
+            <div class="container is-fluid is-child box">
+              <div class="notification">
+                <div class="field">
+                  <label class="label">Name</label>
+                  <div class="control has-icons-left has-icons-right">
+                    <input class="input is-dark" type="text" name="name">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-user"></i>
+                    </span>
+                  </div>
+                </div>
+                
+                <div class="field">
+                  <label class="label">Email</label>
+                  <div class="control has-icons-left has-icons-right">
+                    <input class="input is-dark" type="email" name="email">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-envelope"></i>
+                    </span>
+                  </div>
+                </div>
+          
+                <div class="field">
+                  <label class="label">Phone</label>
+                  <div class="control has-icons-left has-icons-right">
+                    <input class="input is-dark" type="phone"  name="phone">
+                    <span class="icon is-small is-left">
+                      <i class="fas fa-phone"></i>
+                    </span>
+                  </div>
+                </div>
+                <div class="field is-grouped">
+                  <div class="control">
+                    <button type="submit" class="button is-fullwidth is-Link" >Save</button>
+                  </div>
+                  <!-- <button id="btn-update" type="submit" class="button is-fullwidth is-Link" >Update</button> -->
+                </div>
+          
+              </div>
+            </div>
+          </form>
+  
+          
+        </div>
+      <div class="column is-7">
+        <div class="card events-card">
+          <header class="card-header">
+              <p class="card-header-title">
+                  Contact List
+              </p>
+          </header>
+          <div class="card-table">
+              <div class="content">
+                  <table class="table is-fullwidth is-striped">
+                      <tbody>
+                      <% contacts.forEach((contact, i) =>  {%>
+                          <tr class="contact">
+                              <td><i class="fa fa-user-circle fa-2x"></i></td>
+                              <td><%=contact.name%></td>
+                              <td><%=contact.email%></td>
+                              <td><%=contact.phone%></td>
+                              <td>
+                                  <a class="button is-small is-danger" href="/contacts/delete/<%= contact._id %>" >Delete</a>
+                                  <a class="button is-small is-dark modal-button" href="/contacts/update/<%= contact._id %>" id="btn-update" data-target="#modal" aria-haspopup="true">Update</a>
+                              </td>
+                          </tr>
+                      <%  }); %>
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+      </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Gery Contact</strong> by <a href="https://www.instagram.com/gerry.ramadhan/">Gery Ramadhan</a>
+      </p>
+    </div>
+  </footer>
+  <script src="main.js"></script>
+</body>
+</html>

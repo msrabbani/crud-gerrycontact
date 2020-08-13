@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  <title>Update</title>
+</head>
+<body>
+  <div class="modal is-active">
+    <div class="modal-background"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        <p class="modal-card-title">Update Contact</p>
+      </header>
+        <form action="/contacts/update/<%=contactEdit._id%>" method="POST">
+          <form action="" method="POST">
+            <div class="notification">
+              <div class="field">
+                <label class="label">Name</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input is-dark" type="text" name="name" required value="<%=(typeof contactEdit!='undefined')? contactEdit.name:''%>" >
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                  </span>
+                </div>
+              </div>
+              
+              <div class="field">
+                <label class="label">Email</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input is-dark" type="email" name="email"  required value="<%=(typeof contactEdit!='undefined')? contactEdit.email:''%>">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                </div>
+              </div>
+        
+              <div class="field">
+                <label class="label">Phone</label>
+                <div class="control has-icons-left has-icons-right">
+                  <input class="input is-dark" type="phone" name="phone"  required value="<%=(typeof contactEdit!='undefined')? contactEdit.phone:''%>" >
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-phone"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="field is-grouped">
+                <div class="control">
+                  <button type="button" onclick="history.back()" class="button is-fullwidth is-Link" >Close</button>
+                </div>
+                <button type="submit" href="" class="button is-fullwidth is-Link" >Save</button>
+              </div>
+            </div>
+        </form>
+    </div>
+  </div>
+</body>
+</html>
