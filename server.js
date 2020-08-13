@@ -1,4 +1,5 @@
 const express = require('express');
+require('dotenv').config();
 const bodyParser = require('body-parser');
 const app = express();
 let ObjectId = require('mongodb').ObjectId;
@@ -9,8 +10,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 const MongoClient = require('mongodb').MongoClient;
-const connectionString =
-  'mongodb+srv://kalengabret:<password>@cluster0.ff92n.mongodb.net/<dbname>?retryWrites=true&w=majority';
+const connectionString = `mongodb+srv://kalengabret:${process.env.DB_PASS}@cluster0.ff92n.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(
   (client) => {
