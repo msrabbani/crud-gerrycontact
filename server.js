@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 
 const MongoClient = require('mongodb').MongoClient;
 const connectionString =
-  'mongodb+srv://kalengabret:ilovevespa@cluster0.ff92n.mongodb.net/gery-contacts?retryWrites=true&w=majority';
+  'mongodb+srv://kalengabret:<password>@cluster0.ff92n.mongodb.net/<dbname>?retryWrites=true&w=majority';
 
 MongoClient.connect(connectionString, { useUnifiedTopology: true }).then(
   (client) => {
